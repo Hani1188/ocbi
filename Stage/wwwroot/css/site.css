@@ -1,0 +1,956 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+@media only screen and (max-width: 1499px) {
+    #gaugeSales_Axis_0_Annotation_0 {
+        font-size: 18px !important;
+    }
+}
+@media only screen and (min-width: 1500px) {
+    #gaugeSales_Axis_0_Annotation_0 {
+        font-size: 28px !important;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    select.form-control {
+        font-size: 14px !important;
+    }
+}
+
+[v-cloak] {
+    display: none;
+}
+
+@font-face {
+    font-family: 'Muli', sans-serif;
+    src: url(/fonts/Muli-VariableFont_wght.ttf);
+}
+
+html, body {
+    font-family: 'Muli', sans-serif;
+    height: 100%;
+    margin: 0;
+}
+
+/*Scrollbar*/
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #808080;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #808080;
+}
+/*Scrollbar*/
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#content {
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    transition: all 0.3s;
+}
+
+/*Alert Colors*/
+.red {
+    height: 12px;
+    width: 12px;
+    background-color: red;
+    box-shadow: 0 0 5px 0 red;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.yellow {
+    height: 12px;
+    width: 12px;
+    background-color: #fcca46;
+    box-shadow: 0 0 5px 0 #fcca46;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.green {
+    height: 12px;
+    width: 12px;
+    background-color: #00a40d;
+    box-shadow: 0 0 5px 0 #00a40d;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+
+.black-kpi-text {
+    color: black;
+}
+
+.danger-kpi-text {
+    color: red;
+}
+
+.warning-kpi-text {
+    color: #fcca46;
+}
+
+.success-kpi-text {
+    color: #00a40d;
+}
+
+.mobile-detail-txt {
+    font-weight: 600;
+}
+
+.danger-progress {
+    background-color: red;
+    border: 1px solid red;
+}
+
+.warning-progress {
+    background-color: #fcca46;
+    border: 1px solid #fcca46;
+}
+
+.success-progress {
+    background-color: #00a40d;
+    border: 1px solid #00a40d;
+}
+
+.danger-progress-background {
+    background-color: rgba(255, 0, 0, 0.2);
+
+}
+
+.warning-progress-background {
+    background-color: rgba(252, 202, 70, 0.2);
+
+}
+
+.success-progress-background {
+    background-color: rgba(0, 164, 13, 0.2);
+ 
+}
+
+.danger-detail-kpi {
+    background-color: rgba(255, 0, 0, 0.2);
+    border: 2px solid red;
+}
+
+.warning-detail-kpi {
+    background-color: rgba(252, 202, 70, 0.2);
+    border: 2px solid #fcca46;
+}
+
+.success-detail-kpi {
+    background-color: rgba(0, 164, 13, 0.2);
+    border: 2px solid #00a40d;
+}
+
+.top-three-kpi-text {
+    color: #00a40d;
+    text-align: center;
+    font-size: 1.4vw;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+i .danger-kpi-icon {
+    color: red;
+}
+
+i .warning-kpi-icon {
+    color: #fcca46;
+}
+
+i .success-kpi-icon {
+    color: #00a40d;
+}
+
+
+
+.success-border-gauge {
+    border-color: #00a40d !important;
+}
+
+.warning-border-gauge {
+    border-color: #fcca46 !important;
+}
+
+.danger-border-gauge {
+    border-color: red !important;
+}
+
+/*End Alert*/
+
+/*Dashboard*/
+.gaugeCircle {
+    position: relative;
+    position: relative;
+    border-radius: 100%;
+    width: 100%;
+    padding-bottom: 91%;
+    background: white;
+    border: 5px solid;
+    align-items: center;
+    color: black;
+}
+
+.gaugeCircleCars {
+    position: relative;
+    border-radius: 100%;
+    width: 100%;
+    padding-bottom: 98%;
+    background: white;
+    border: 5px solid;
+    align-items: center;
+    color: black;
+}
+
+
+.gaugeInnerCircleSmaller {
+    position: absolute;
+    border-radius: 50%;
+    width: 75%;
+    height: 75%;
+    background: transparent;
+    border: 1px solid;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+.white-blocker-small {
+    position: absolute;
+    border: 15px solid white;
+    width: 91%;
+    height: 91%;
+    border-radius: 100%;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+.gaugeInnerCircle {
+    position: absolute;
+    border-radius: 50%;
+    width: 95%;
+    height: 95%;
+    background: white;
+    border: 4px solid;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.gaugeSpeedoInnerCircle {
+    position: absolute;
+    border-radius: 50%;
+    right: 5%;
+    left: 5%;
+    top: 5%;
+    bottom: 5%;
+    background-color: transparent;
+    border: 2px solid;
+}
+
+.gaugeSpeedoInnerCircle2 {
+    position: absolute;
+    border-radius: 50%;
+    right: 3%;
+    left: 3%;
+    top: 3%;
+    bottom: 3%;
+    background-color: transparent;
+    border: 2px solid;
+}
+
+.gaugeSpeedoCircle {
+    position: absolute;
+    border-radius: 50%;
+    right: 45%;
+    left: 45%;
+    top: 45%;
+    bottom: 45%;
+    background: black;
+    border: 4px solid;
+}
+
+.needle {
+    width: 5px;
+    height: 30%;
+    background: #e65e05;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    left: 50%;
+    top: 20%;
+    bottom: 0;
+    /*-webkit-animation: move 5s infinite;*/
+    transform: rotate(-118deg);
+    transform-origin: bottom;
+    transition: transform 1s;
+}
+
+@-webkit-keyframes move {
+    0% {
+        transform: rotate(-118deg);
+    }
+
+    50% {
+        transform: rotate(118deg);
+    }
+
+    100% {
+        transform: rotate(-118deg);
+    }
+}
+
+.needle-small {
+    width: 5px;
+    height: 45%;
+    background: #852020;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    left: 50%;
+    bottom: 0;
+    top: -42%;
+    /*-webkit-animation: movesmall 5s infinite;*/
+    transform: rotate(-140deg);
+    transform-origin: bottom;
+    transition: transform 1s;
+}
+
+@-webkit-keyframes movesmall {
+    0% {
+        transform: rotate(-140deg);
+    }
+
+    50% {
+        transform: rotate(-220deg);
+    }
+
+    100% {
+        transform: rotate(-140deg);
+    }
+}
+
+.needle-small-inner {
+    width: 5px;
+    height: 40%;
+    background: #852020;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    left: 50%;
+    bottom: 0;
+    top: -35%;
+    /*-webkit-animation: movesmall 5s infinite;*/
+    transform: rotate(-140deg);
+    transform-origin: bottom;
+    transition: transform 1s;
+}
+
+.odometer {
+    width: 20%;
+    font-family: 'Muli', sans-serif;
+    font-size: 1.15em;
+}
+
+.service-header-txt {
+    text-align: center;
+    font-size: 1vw;
+    font-family: sans-serif;
+    font-weight: 800;
+}
+
+.service-percent-txt {
+    width: 100%;
+    text-align: center;
+    font-size: 1.4vw;
+    font-family: sans-serif;
+    font-weight: 800;
+}
+
+.service-goal-txt {
+    width: 100%;
+    text-align: center;
+    font-size: 0.6vw;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+.service-count-badge {
+    padding-left: 10%;
+    border-radius: 25%;
+    text-align: center;
+    font-size: 0.8vw;
+    font-family: sans-serif;
+    font-weight: 800;
+    padding-right: 10%;
+}
+
+
+.circle-txt-outer {
+    position: absolute;
+    bottom: 65%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3vw;
+    font-family: sans-serif;
+    font-weight: 800;
+}
+
+.circle-txt {
+    position: absolute;
+    bottom: 70%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3vw;
+    font-family: sans-serif;
+    font-weight: 800;
+}
+
+.circle-txt2 {
+    position: absolute;
+    bottom: 35%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3vw;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.performance-txt {   
+    font-size: 1.3vw;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.circle-txt3 {
+    position: absolute;
+    bottom: 20%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3vw;
+    font-family: sans-serif;
+    font-weight: 800;
+}
+
+.circle-txt4 {
+    position: absolute;
+    bottom: 20%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3vw;
+    font-family: sans-serif;
+    font-weight: 800;
+}
+
+.circle-txt5 {
+    position: absolute;
+    bottom: 23%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3vw;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.circle-img-gauge-needle {
+    position: absolute;
+    right: 5%;
+    bottom: 66%;
+    width: 100%;
+    text-align: center;
+}
+
+.circle-img-outer {
+    position: absolute;
+    bottom: 48%;
+    width: 120%;
+    text-align: center;
+    left: -10%;
+}
+
+.circle-img {
+    position: absolute;
+    bottom: 55%;
+    width: 110%;
+    text-align: center;
+    left: -5%;
+}
+
+
+.circle-img-sa {
+    position: absolute;
+    bottom: 50%;
+    width: 110%;
+    text-align: center;
+    left: -5%;
+}
+
+.circle-img-center {
+    position: absolute;
+    bottom: 30%;
+    width: 100%;
+    text-align: center;
+}
+
+.circle-img-center-car {
+    position: absolute;
+    bottom: 30%;
+    width: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.circle-img-center-car2 {
+    position: absolute;
+    bottom: 37%;
+    width: 100%;
+    text-align: center;
+}
+
+.badge-labor {
+    width: 42%;
+    height: 30%;
+    padding-bottom: 5%;
+    font-size: 1.0vw;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.badge-sa {
+    width: 50%;
+    height: 35%;
+    padding-bottom: 10%;
+    padding-top: 5%;
+    font-size: 1.3vw;
+    font-family: sans-serif;
+    font-weight: 700;
+}
+
+
+.header-txt {
+    text-align: center;
+    font-size: 1.1vw;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.header-badge {
+    width: 20%;
+    height: 38px;
+    font-size: 1.1vw;
+    font-family: sans-serif;
+    font-weight: 700;
+    border: 4px solid black;
+}
+
+.circle-badge {
+    position: absolute;
+    bottom: 2%;
+    width: 100%;
+    text-align: center;
+}
+
+.circle-badge-odometer {
+    position: absolute;
+    bottom: 10%;
+    text-align: center;
+    width: 100%;
+}
+
+/*Servies KPI*/
+.no-activity-text {
+    position: absolute;
+    z-index: 3;
+    padding: 1.75vw 0 0 2.85vw;
+    margin: 0;
+    text-align: center;
+}
+
+.box2 {
+    background: #fcca46;
+    position: relative;
+    padding: 0px;
+    border-radius: 0.3125vw;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: -6px;
+}
+
+.content {
+    display: flex;
+}
+
+/*Gauge*/
+.mask {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    width: 4.6875vw;
+    height: 9.375vw;
+    z-index: 2;
+}
+
+.semi-circle {
+    position: relative;
+    display: block;
+    width: 4.6875vw;
+    height: 9.375vw;
+    background: linear-gradient(to top, red 5%, #fcca46 50%, #00a40d 100%);
+    /*background: #fff;*/
+    border-radius: 250% 0% 0% 250% / 125% 0% 0% 125%;
+}
+
+.semi-circle::before {
+    content: "";
+    position: absolute;
+    bottom: 3.125vw;
+    left: -7%;
+    z-index: 2;
+    display: block;
+    width: 6.875vw;
+    height: 3.28125vw;
+    margin-top: 3.125vw;
+    transform: rotate(-90deg);
+    background: #fff;
+    border-radius: 50% / 100% 100% 0% 0%;
+}
+
+.semi-circle--mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotate(0deg);
+    width: 9.375vw;
+    height: 9.375vw;
+    background: transparent;
+    transform: rotate(-90deg) translate3d(0, 0, 0);
+    transform-origin: center center;
+    margin-right: -4.6875vw;
+    backface-visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.semi-circle--mask::before {
+    content: "";
+    position: absolute;
+    top: 0%;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 9.4375vw;
+    height: 4.75vw;
+    margin: -1px 0 0 -1px;
+    background: #f2f2f2;
+    border-radius: 50% 50% 50% 50% / 100% 100% 0% 0%;
+}
+
+.gauge--2 .semi-circle .semi-circle--mask {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+    transform-origin: center center;
+    margin-left: 0vw;
+    margin-right: -4.68755vw;
+    background: transparent;
+}
+
+.gauge {
+    background: transparent;
+    padding: 3.125vw;
+    width: 4.6875vw;
+    height: 9.375vw;
+}
+
+.gaugeoc {
+    background: yellow;
+    padding: 0.625vw;
+    width: 4.6875vw;
+    height: 9.375vw;
+}
+
+.gaugeoc  .semi-circle--mask {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+    transform-origin: center center;
+    margin-left: 0vw;
+    margin-right: 4.6875vw;
+    background: transparent;
+}
+/*Gauge*/
+/*End Services KPI*/
+
+/*Mobile*/
+.summaryValueText{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.summaryValueTextBorder {
+    border: 1px solid #808080;
+    border-radius: 5px
+}
+
+/*Settings*/
+.kpiTitle {
+    border-bottom: 3px solid #fcca46;
+    display: inline-block;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+
+}
+
+/*Login/Register*/
+.oc-background {
+    background: url("../images/oil-changers-3.jpg") center no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+/*Analytics*/
+.sales{
+    color: #601ccf;
+}
+
+.cars {
+    color: #e65e05;
+}
+
+.fleet {
+    color: #1ad5db;
+}
+
+.labor {
+    color: #177cdd;
+}
+
+.sa {
+    color: #47e22f;
+}
+
+.la {
+    color: #6b219d;
+}
+
+.ta {
+    color: #6b219d;
+}
+
+/*Spinner*/
+.spinner {
+    height: 100vh;
+    z-index: 9999;
+    top: 40% !important;
+    background: url('/images/Gear-4.1s-200px.svg') 50% 50% no-repeat;
+}
+
+/*BootStrap*/
+.navbar{
+    border-bottom: solid 1px #808080;
+}
+
+a.nav-link {
+    font-size: 18px;
+    padding: .25em;
+}
+
+.sidebar {
+    /*border-right: solid 1px #808080;*/
+}
+
+a{
+    color: #000000;
+}
+
+label{
+    font-size: 12px !important;
+}
+
+a:hover {
+    color: #fcca46;
+}
+
+.selected {
+    color: #fcca46;
+    font-weight: bold;
+}
+
+.btn-link {
+    color: #000000;
+}
+
+.btn-link.active {
+    color: #fcca46;
+    font-weight: 700;
+    background-color: #ffffff;
+}
+
+.nav-link.active {
+    color: #fcca46 !important;
+    font-weight: 700;
+    background-color: #ffffff;
+    text-decoration:underline;
+}
+
+a.nav-link:hover {
+    /*color: #00a40d !important;*/
+}
+
+.nav .nav-pills{
+    background-color: #ebebeb;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fcca46;
+    background-color: transparent;
+}
+
+.btn-warning {
+    background-color: #fcca46 !important;
+    border-color: #fcca46 !important;
+}
+
+.btn-outline-warning {
+    color: #fcca46 !important;
+    border-color: #fcca46 !important;
+}
+
+.text-warning {
+    color: #fcca46 !important;
+}
+
+.card{
+    margin: 2px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.card-header {
+    background-color: #fff !important;
+}
+
+.card-border .vertical-header {
+    position: absolute;
+    bottom: 0;
+    left: -3px;
+    background: none;
+    /* Rotate from top left corner (not default) */
+    transform-origin: left bottom;
+    transform: rotate(-90deg);
+    font-size: 1.25vw;
+}
+
+.card-border {
+    border-left-color: black;
+    border-left-width: 35px;
+}
+
+.accordion > .card {
+    border-radius: 5px !important;
+}
+
+.accordion > .card:not(:last-of-type) {
+    border-bottom: 1px solid rgba(0,0,0,.125) !important;
+}
+
+.list-group {
+    max-height: 500px;
+    margin-bottom: 10px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.list-group-item {
+    border: none;
+}
+
+/*Syncfusion*/
+.e-control, .e-circulargauge, .e-chart, .e-lib {
+    font-family: muli !important;
+}
+
+li .e-list-text {
+    font-size: 18px !important;
+}
+
+.e-treeview .e-ul {
+    overflow-x: hidden !important;
+}
+
+.e-treeview .e-list-item.e-active > .e-text-content .e-list-text {
+    color: #ffc107 !important;
+}
+
+.circGaugeOdometer {
+    background-color: black !important;
+    color: white !important;
+    font-size: 18px !important;
+    padding: 3px !important;
+}
+
+.circGaugeOdometer:nth-child(6n) {
+    background: white;
+    color: black;
+}
+
+.top-three-kpi-vert-text {
+    width: 85px;
+    text-align-last: center;
+}
+
+/*FontAwesome*/
+.fas, .far {
+    /*color: #808080;*/
+}
+
+

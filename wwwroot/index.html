@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Oil Changers BI</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Smythe&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <link href="//cdn.syncfusion.com/ej2/ej2-popups/styles/material.css" rel="stylesheet">
+    <link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-car.css" />
+
+    <link rel="stylesheet" href="/wwwroot/css/site.css" />
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand col-2" href="/">
+                <img src="/wwwroot/images/logo_w_tagline.png" width="100" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                
+
+    <ul class="navbar-nav mr-auto"></ul>
+    <form method="post" id="logoutForm" class="navbar-right" action="/Identity/Account/Logout?returnUrl=%2F">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Analytics">Analytics</a>
+            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Settings">Settings</a>
+                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Support</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" title="Manage" href="?area=Identity&amp;page=%2FAccount%2FManage%2FIndex"></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="badge badge-secondary p-2">eddie.oweis@oilchangers.com</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <button type="submit" class="btn btn-link navbar-btn dropdown-item">Logout</button>
+                </div>
+            </li>
+        </ul>
+    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8KS7BJrdOolOphLPDoTLeWklOX3pHYvhL0Z89h9TouDjFF0qQZFbvtKZVbUxiv4nFQ8YzE_2j8Frlyn6L6BwxMRLTfbwamFnpxYBvoktSvx3b0rDd0eTTQ0JsBrb0BcpLwXxzTPJtDWGCf1vTjhnVExm9w7KusL1AvqLTg4MSuRqxQX64Wc9E8atwlssg545fA" /></form>
+
+            </div>
+        </nav>
+
+    <div class="container-fluid">
+        <div class="row h-100">
+                <nav class="col-xl-2 sidebar d-none d-xl-block p-0" id="appSideNav" style="overflow-y: scroll; overflow-x:hidden;">
+                    <div id="treeNav"></div>
+                </nav>
+                <main role="main" class="col-12 col-xl-10 pt-1 px-xl-4 bg-light" style="height: calc(100vh - 91.05px); overflow-y: scroll; overflow-x:hidden;" id="mainWrapper">
+                    <input type="hidden" id="userRole" value="Admin"/>
+                    
+    <div id="appDashboard" v-cloak>
+
+
+        <div class="d-flex justify-content-center" v-if="isLoading">
+            <div class="spinner-border text-warning" role="status" style="margin-top: 40vh">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <input type="hidden" id="roleLevel" />
+
+        <div v-if="!isLoading">
+            <div class="alert alert-danger mt-3" role="alert" v-if="showEmployeeWarning">
+                Employees Due Break: {{storeData.employeesDue}}
+            </div>
+
+            <div class="row">
+                <div class="col-12 p-0">
+                    <div class="card shadow" id="salesCard">
+                        <div class="card-body pt-1 pb-2 px-2">
+                            <div class="d-block d-xl-none mb-1">
+                                <ul class="nav mb-1" id="summaryDetail" role="tablist">
+                                    <li class="nav-item mr-auto">
+                                        <a class="nav-link pl-0" href="#"><strong>BI Dashboard</strong></a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link active" v-on:click="switchSummaryMode">Summary</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" v-on:click="switchSummaryMode">Detail</a>
+                                    </li>
+                                </ul>
+
+                                <div v-if="showSummaryDetail">
+                                    <div class="row">
+                                        <div class="col-12" style="cursor:pointer">
+                                            <div v-show="mobileParentItem.storeType != 'COMPANY'" v-on:click="drillUp"><strong>{{mobileParentItem.storeLabel}}</strong> <i class="fas fa-arrow-up"></i></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-2" style="border-bottom-style: solid; border-bottom-color: black; border-bottom-width: thin;">
+                                        <div class="col-3">
+
+                                        </div>
+                                        <div class="col-3 text-center">
+                                            <strong>Cars</strong>
+                                        </div>
+                                        <div class="col-3 text-center">
+                                            <strong>Sales</strong>
+                                        </div>
+                                        <div class="col-3 text-center">
+                                            <strong>SA</strong>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-1 mt-2" v-if="mobileSummaryItems" v-for="dashboardItem in mobileSummaryItems" style="border-bottom-style: solid; border-bottom-color: black; border-bottom-width: thin;">
+                                        <div class="col-3" style="cursor:pointer">
+                                            <a class="alert-link" style="text-decoration:underline; cursor:pointer" v-on:click="drillDown(dashboardItem.store)">{{dashboardItem.storeLabel}}</a>
+                                        </div>
+                                        <div class="col-3 mt-1 text-center">
+                                            <h6 class="summaryValueText" v-bind:class="getClass(dashboardItem.guageCars_Color + '-kpi-text' )">{{dashboardItem.guageCars_Count}}</h6>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div>
+                                                        <small>Fleet</small>
+                                                        <h6 class="summaryValueText summaryValueTextBorder p-2" v-bind:class="getClass('badge-' + dashboardItem.guageFleet_Color)">{{dashboardItem.guageFleetCars_Count}}</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 mt-1 text-center">
+                                            <h6 class="summaryValueText" v-bind:class="getClass(dashboardItem.guageSales_Color + '-kpi-text' )">${{dashboardItem.guageSales_Count | currency}}</h6>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div>
+                                                        <small>Fleet Sales</small>
+                                                        <h6 class="summaryValueText summaryValueTextBorder p-2" v-bind:class="getClass('badge-' + dashboardItem.guageFleet_Color)">${{dashboardItem.guageFleetSales_Count | currency}}</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 mt-1 text-center">
+                                            <h6 class="summaryValueText" v-bind:class="getClass(dashboardItem.guageSA_Color + '-kpi-text' )">{{dashboardItem.guageSA_Count}}</h6>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div>
+                                                        <small>TA</small>
+                                                        <h6 class="summaryValueText summaryValueTextBorder p-2" v-bind:class="getClass('badge-' + dashboardItem.guageTA_Color)">{{dashboardItem.guageTA_Count}}</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div v-show="!showSummaryDetail">
+                                    <div class="row mt-2 mx-2">
+                                        <div class="col-6 pt-2">
+                                            <strong>Current: {{storeData.storeLabel}}</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <select class="form-control" v-model="selectedStore" v-on:change="selectedStoreChanged">
+                                                    <option v-for="store in storeLookup" v-bind:value="store.store">
+                                                        {{store.adjustedLabel}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-6 pr-1">
+                                            <div class="card mb-3" v-bind:class="getClass(storeData.guageCars_Color + '-detail-kpi')">
+                                                <div class="card-body p-1">
+                                                    <div class="">Cars</div>
+                                                    <div class="text-right mobile-detail-txt" v-bind:class="getClass('border-' + storeData.guageCars_Color)">{{storeData.guageCars_Count}}</div>
+                                                    <p class="card-text text-right"><small class="text-muted mobile-detail-txt">GOAL: {{storeData.guageCars_CountLastYear}}</small></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 pl-1">
+                                            <div class="card mb-3" v-bind:class="getClass(storeData.guageSales_Color + '-detail-kpi')">
+                                                <div class="card-body p-1">
+                                                    <div class="">Sales</div>
+                                                    <div class="text-right mobile-detail-txt" v-bind:class="getClass('border-' + storeData.guageSales_Color)">${{storeData.guageSales_Count | currency}}</div>
+                                                    <p class="card-text text-right"><small class="text-muted mobile-detail-txt">GOAL: ${{storeData.guageSales_CountLastYear | currency}}</small></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-6 pr-1">
+                                            <div class="card mb-3" v-bind:class="getClass(storeData.guageSA_Color + '-detail-kpi')">
+                                                <div class="card-body p-1">
+                                                    <div class="">SA</div>
+                                                    <div class="text-right mobile-detail-txt" v-bind:class="getClass('border-' + storeData.guageSA_Color)">${{storeData.guageSA_Count | currency}}</div>
+                                                    <p class="card-text text-right"><small class="text-muted mobile-detail-txt">GOAL: $N/A</small></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 pl-1">
+                                            <div class="card mb-3" v-bind:class="getClass(storeData.guageFleet_Color + '-detail-kpi')">
+                                                <div class="card-body p-1">
+                                                    <div class="">Fleet</div>
+                                                    <div class="text-right mobile-detail-txt" v-bind:class="getClass('border-' + storeData.guageFleet_Color)">{{storeData.guageFleetCars_Count}}</div>
+                                                    <p class="card-text text-right"><small class="text-muted mobile-detail-txt">GOAL: $N/A</small></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-6 pr-1">
+                                            <div class="card mb-3" v-bind:class="getClass(storeData.guageLabor_Color + '-detail-kpi')">
+                                                <div class="card-body p-1">
+                                                    <div class="">Labor</div>
+                                                    <div class="text-right mobile-detail-txt" v-bind:class="getClass('border-' + storeData.guageLabor_Color)">${{storeData.guageLabor_DollarCount | currency}}</div>
+                                                    <p class="card-text text-right"><small class="text-muted mobile-detail-txt">GOAL: {{storeData.guageLabor_ThresholdPercent}}% ACTUAL: {{storeData.guageLabor_ActualPercent}}%</small></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-3" style="border-bottom-style: solid; border-bottom-color: black; border-bottom-width: thin;">
+                                        <div class="col-2 pr-1">
+                                            <strong>Service</strong>
+                                        </div>
+                                        <div class="col-1 pr-1">
+                                            <strong>#</strong>
+                                        </div>
+                                        <div class="col-2 pl-1" style="text-align: end">
+                                            <strong>Actual</strong>
+                                        </div>
+                                        <div class="col-5 pl-1">
+                                            <strong>Progress</strong>
+                                        </div>
+                                        <div class="col-2 pl-1">
+                                            <strong>Target</strong>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" v-for="service in services">
+                                        <div class="col-2 pr-1">
+                                            {{service.title}}
+                                        </div>
+                                        <div class="col-1 pr-1">
+                                            {{service.count}}
+                                        </div>
+                                        <div class="col-2 pl-1 " style="text-align: end">
+                                            <small>{{service.actualPercent}}%</small>
+                                        </div>
+                                        <div class="col-5 p-1">
+                                            <div class="progress" v-bind:class="getClass(service.color + '-progress-background')">
+                                                <div class="progress-bar"
+                                                     v-bind:class="getClass(service.color + '-progress')"
+                                                     role="progressbar" v-bind:style="{width: service.progress + '%'}"
+                                                     aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 pl-1">
+                                            <small>{{service.thresholdPercent}}%</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-none d-xl-block">
+                            <div class="container-fluid m-0 px-3 pt-0 pb-3">
+                                <div class="row mb-2">
+                                    <div class="col-12 performance-txt">
+                                        Performance - {{storeData.storeLabel}}
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div>
+                                            <img src="/wwwroot/images/assets/BI/Cluster/Cluster Top.svg" style="width:100%" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-top: -10%;    margin-bottom: -5%;position: relative;">
+                                    <div class="col-4 m-0 pt-5 gaugeBorder">
+                                        <div class="row">
+                                            <div class="col-6 p-3 m-0">
+                                                <h4 class="text-center"><span class="badge header-badge" v-bind:class="getClass('badge-' + storeData.guageVoids_Color)">{{storeData.guageVoids_Count}}</span></h4>
+                                                <h5 class="text-center header-txt">VOIDS</h5>
+                                                <div class="gaugeCircle">
+                                                    <div class="gaugeInnerCircle" v-bind:class="getClass(storeData.guageLabor_Color + '-border-gauge')">
+                                                        <div class="needle-small" v-bind:style="{ 'transform': 'rotate(' + storeData.guageLabor_Angle + 'deg)'}"></div>
+                                                        <div class="circle-txt-outer">LABOR</div>
+                                                        <div class="circle-img-outer"><img src="/wwwroot/images/assets/BI/Gauge Includes/cold-hot-gauge.svg" style="width:60%;" /></div>
+                                                        <h4 class="circle-txt5"><span>{{storeData.guageLabor_ActualPercent}}%</span></h4>
+                                                        <h4 class="circle-badge "><span class="badge badge-labor" v-bind:class="getClass('badge-' + storeData.guageLabor_FractionColor)">{{storeData.guageLabor_FractionCount}}</span></h4>
+                                                    </div>
+                                                    <div class="white-blocker-small">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 p-1 m-0">
+                                                <div class="gaugeCircle">
+                                                    <div class="gaugeInnerCircle" v-bind:class="getClass(storeData.guageSales_Color + '-border-gauge')">
+                                                        <div class="needle-small-inner" v-bind:style="{ 'transform': 'rotate(' + storeData.guageSales_Angle + 'deg)'}"></div>
+                                                        <div class="circle-txt">SALES</div>
+                                                        <div class="circle-img"><img src="/wwwroot/images/assets/BI/Gauge Includes/low-high-gauge.svg" style="width:50%;" /></div>
+                                                        <h4 class="circle-txt2"><span>${{storeData.guageSales_Count | currency}}</span></h4>
+                                                        <h4 class="circle-txt3">TA</h4>
+                                                        <h4 class="circle-badge"><span class="badge badge-labor" v-bind:class="getClass('badge-' + storeData.guageTA_Color)">${{storeData.guageTA_Count | currency}}</span></h4>
+                                                    </div>
+                                                    <div class="white-blocker-small">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 p-1 m-0 gaugeBorder" style="bottom:60px;">
+                                        <div class="gaugeCircleCars">
+                                            <div class="gaugeInnerCircle" v-bind:class="getClass(storeData.guageCars_Color + '-border-gauge')">
+                                                <div class="circle-img-center-car"><img src="/wwwroot/images/assets/BI/Gauge Includes/Speed Reading.svg" style="width:80%;" /></div>
+                                                <div class="circle-img-center-car2"><img src="/wwwroot/images/assets/BI/Gauge Includes/Speed Indicators.svg" style="width:50%;" /></div>
+                                                <div class="gaugeSpeedoInnerCircle" v-bind:class="getClass(storeData.guageCars_Color + '-border-gauge')"></div>
+                                                <div class="gaugeSpeedoInnerCircle2" v-bind:class="getClass(storeData.guageCars_Color + '-border-gauge')"></div>
+                                                <div class="gaugeSpeedoCircle"></div>
+                                                <div class="needle" v-bind:style="{ 'transform': 'rotate(' + storeData.guageCars_Angle + 'deg)'}"></div>
+                                                <h4 class="circle-txt4">CARS</h4>
+                                                <div class="circle-badge-odometer">
+                                                    <div id="odometer" class="odometer"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-4 m-0 pt-5 gaugeBorder">
+                                        <div class="row">
+                                            <div class="col-6 p-1 m-0">
+                                                <div id="gaugeSA" align="center"></div>
+                                                <div class="gaugeCircle">
+                                                    <div class="gaugeInnerCircle" v-bind:class="getClass(storeData.guageSA_Color + '-border-gauge')">
+                                                        <div class="needle-small-inner" v-bind:style="{ 'transform': 'rotate(' + storeData.guageSA_Angle + 'deg)'}"></div>
+                                                        <div class="circle-txt">SA</div>
+                                                        <div class="circle-img-sa"><img src="/wwwroot/images/assets/BI/Gauge Includes/amp-gauge.svg" style="width:60%;" /></div>
+                                                        <h4 class="circle-badge"><span class="badge badge-sa" v-bind:class="getClass('badge-' + storeData.guageSA_Color)">${{storeData.guageSA_Count | currency}}</span></h4>
+                                                    </div>
+                                                    <div class="white-blocker-small">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 p-3 m-0">
+                                                <h4 class="text-center"><span class="badge header-badge" v-bind:class="getClass('badge-' + storeData.guageTopOffs_Color)">{{storeData.guageTopOffs_Count}}</span></h4>
+                                                <h5 class="text-center header-txt">TOP OFFS</h5>
+                                                <div class="gaugeCircle">
+                                                    <div class="gaugeInnerCircle" v-bind:class="getClass(storeData.guageFleet_Color + '-border-gauge')">
+                                                        <div class="needle-small" v-bind:style="{ 'transform': 'rotate(' + storeData.guageFleet_Angle + 'deg)'}"></div>
+                                                        <div class="circle-txt-outer">FLEET</div>
+                                                        <div class="circle-img-outer"><img src="/wwwrooot/images/assets/BI/Gauge Includes/low-high-gauge.svg" style="width:50%;" /></div>
+                                                        <h4 class="circle-txt5"><span></span></h4>
+                                                        <h4 class="circle-badge"><span class="badge badge-sa" v-bind:class="getClass('badge-' + storeData.guageFleet_Color)">{{storeData.guageFleetCars_Count}}</span></h4>
+                                                    </div>
+                                                    <div class="white-blocker-small">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row text-center mt-5">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <img src="/wwwroot/images/assets/BI/Cluster/Cluster Bottom.svg" style="width:50%" />
+                                        </div>
+                                        <div class="text-center">
+                                            <img src="/wwwroot/images/logo_w_tagline.png" alt="" style="width:8%;position:relative;margin-top: -4%;">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row p-0 mx-0 my-1 justify-content-between">
+                                    <div class="col-1 p-0" v-for="service in services">
+                                        <div class="row text-center">
+                                            <div class="col-12">
+                                                <div class="box gauge--2">
+                                                    <div class="no-activity-text">
+                                                        <div class="service-header-txt">{{service.title}}</div>
+                                                        <div class="service-percent-txt" v-bind:class="getClass(service.color + '-kpi-text')">{{service.actualPercent}}%</div>
+                                                        <div class="service-goal-txt"> GOAL {{service.thresholdPercent}}%</div>
+                                                        <div class="badge service-count-badge" v-bind:class="getClass('badge-' + service.color)">{{service.count}}</div>
+                                                    </div>
+
+                                                    <div class="mask" v-bind:id="service.title">
+                                                        <div class="semi-circle"></div>
+                                                        <div class="semi-circle--mask">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row h-100">
+                <div class="col-12 col-xl-4 d-none d-xl-block p-0" v-if="carsList.length > 0">
+                    <div class="card shadow card-border">
+                        <h4 class="text-white vertical-header top-three-kpi-vert-text">CARS</h4>
+                        <div class="card-body text-center">
+                            <div class="row">
+                                <div class="col-4" v-for="car in carsList">
+                                    <h5 class="top-three-kpi-text">{{car.value}}</h5>
+                                    <h5><span class="badge badge-dark">{{car.store}}</span></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow card-border">
+                        <h4 class="text-white vertical-header text-center top-three-kpi-vert-text">SA</h4>
+                        <div class="card-body text-center">
+                            <div class="row">
+                                <div class="col-4" v-for="sa in saList">
+                                    <h5 class="top-three-kpi-text">${{sa.value | currency}}</h5>
+                                    <h5><span class="badge badge-dark">{{sa.store}}</span></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow card-border">
+                        <h4 class="text-white vertical-header text-center top-three-kpi-vert-text">SALES</h4>
+                        <div class="card-body text-center">
+                            <div class="row">
+                                <div class="col-4" v-for="sale in salesList">
+                                    <h5 class="top-three-kpi-text">${{sale.value | currency}}</h5>
+                                    <h5><span class="badge badge-dark">{{sale.store}}</span></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-4 d-none d-xl-block p-0" v-if="carsList.length == 0">
+                    <div class="card h-100">
+                        <div class="card-body p-2">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h6>No Top 3 Data</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-8 p-0">
+                    <div class="card shadow">
+                        <div class="card-body px-2 pt-2 pb-1">
+                            <ul class="nav">
+                                <li class="nav-item mr-auto">
+                                    <a class="nav-link pl-0" href="#"><strong>Messaging</strong></a>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="btn btn-warning text-white" v-if="!isNewMessage" v-on:click="isNewMessage = !isNewMessage">New Message</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="btn btn-outline-dark mr-2" v-if="isNewMessage" v-on:click="isNewMessage = !isNewMessage">Cancel</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="btn btn-warning text-white" v-if="isNewMessage" v-on:click="insertMessages">Send</button>
+                                </li>
+                            </ul>
+
+                            <div v-if="!isNewMessage">
+                                <div v-if="dashboardMessages.length == 0">
+                                    <div class="row">
+                                        <div class="col-12 text-center">
+                                            No Messages
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="list-group mt-1 px-2 mb-1" v-if="dashboardMessages.length > 0">
+                                    <div class="list-group-item list-group-item-action flex-column align-items-start p-0 mx-1" v-for="message in dashboardMessages">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <small>{{ message.postedBy }} TO Store {{ message.store }}</small>
+                                            <small>{{ message.postDateAsString }}</small>
+                                        </div>
+                                        <div class="d-flex mt-1 w-100 justify-content-between">
+                                            <h6 class="mb-1"><span mr-1 class="yellow"></span> {{ message.subject }}</h6>
+                                        </div>
+                                        <p class="mb-1">{{ message.comment }}</p>
+                                        <div style="border: 0;border-top: 1px solid rgba(0,0,0,.1);"></div>
+                                    </div>
+                                    <button class="btn btn-outline-dark" v-on:click="loadMoreMessages">Load More</button>
+                                </div>
+                            </div>
+
+                            <div v-if="isNewMessage" class="mt-3">
+                                <div class="form-row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="col-form-label">SEND TO:</label>
+                                            <select id="ddlStoreObject" class="form-control" v-model="message.storeObjectID">
+                                                <option v-for="object in storeList" v-bind:value="object.store_list_store">
+                                                    {{object.store_list_label}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="message-send-notifcation" v-model="message.sendNotification">
+                                            <label class="form-check-label" for="message-send-notifcation">
+                                                Send Notification
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="message-subject" class="col-form-label">SUBJECT:</label>
+                                    <textarea class="form-control" id="message-subject"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">MESSAGE:</label>
+                                    <textarea class="form-control" id="message-text"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                </main>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+        WebFont.load({
+            google: {
+                families: ['Muli', 'sans-serif']
+            }
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.syncfusion.com/js/assets/external/jquery.easing.1.3.min.js" type="text/javascript"></script>
+    <script src="https://cdn.syncfusion.com/js/assets/external/jsrender.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src='https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js'></script>
+
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script>
+    <script src="https://cdn.syncfusion.com/ej2/ej2-circulargauge/dist/global/ej2-circulargauge.min.js" type="text/javascript"></script>
+    <script src="https://cdn.syncfusion.com/ej2/ej2-charts/dist/global/ej2-charts.min.js" type="text/javascript"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- Axios -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+
+    <!-- Odometr includes -->
+    <script src="https://github.hubspot.com/odometer/odometer.js"></script>
+
+    <script src="/wwwroot/lib/momentjs/moment.js"></script>
+
+    <script src="/wwwroot/js/site.js"></script>
+
+    
+    <script src="/wwwroot/js/sideNav.js"></script>
+    <script src="/wwwroot/js/dashboard.js"></script>
+
+</body>
+</html>

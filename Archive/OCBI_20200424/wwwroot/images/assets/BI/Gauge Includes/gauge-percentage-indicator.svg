@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="85px" height="40px" viewBox="0 0 85 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Rectangle</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard-Light---New-Message" transform="translate(-461.000000, -519.000000)" fill="#008439">
+            <g id="Group-3" transform="translate(330.000000, 120.000000)">
+                <g id="Gauge-4" transform="translate(77.000000, 276.000000)">
+                    <path d="M58,123 L135,123 C137.209139,123 139,124.790861 139,127 L139,146.907267 L139,146.907267 C134.706335,150.351038 130.438413,153.151766 126.196233,155.309452 C120.95569,157.974931 116.376892,159.516626 112.153452,160.563233 C106.01329,162.084821 100.113221,162.551189 96.5,162.551189 C90.716002,162.551189 82.2541163,162.063689 72.9536269,158.451103 C70.7974239,157.61357 66.9470242,155.934191 63.3604159,153.985118 C61.3796637,152.908716 58.2595251,150.830035 54,147.749074 L54,127 C54,124.790861 55.790861,123 58,123 Z" id="Rectangle"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="830px" height="32px" viewBox="0 0 830 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Cluster Bottom</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard-Light---New-Message" transform="translate(-700.000000, -581.000000)">
+            <g id="Group-3" transform="translate(330.000000, 120.000000)">
+                <g id="Group-4" transform="translate(40.000000, 80.000000)">
+                    <g id="Cluster-Bottom" transform="translate(330.000000, 381.000000)">
+                        <path d="M818.190813,32 L11.2525134,32 C5.03717699,32 -1.13686838e-13,24.8356762 -1.13686838e-13,16 C-1.13686838e-13,7.16238488 5.03717699,0 11.2525134,0 L818.190813,0 C824.404786,0 829.443327,7.16238488 829.443327,16 C829.443327,24.8356762 824.404786,32 818.190813,32" id="Fill-21" fill="#0A0B09"></path>
+                        <path d="M818.696763,21 L10.7559528,21 C8.6820552,21 7,18.5368957 7,15.5 C7,12.4611051 8.6820552,10 10.7559528,10 L818.696763,10 C820.770661,10 822.452716,12.4611051 822.452716,15.5 C822.452716,18.5368957 820.770661,21 818.696763,21" id="Fill-22" fill="#DCB400"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="127px" height="57px" viewBox="0 0 127 57" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Needle</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard-Light---New-Message" transform="translate(-1016.000000, -330.000000)">
+            <g id="Group-3" transform="translate(330.000000, 120.000000)">
+                <g id="Large-Gauge" transform="translate(599.000000, 51.000000)">
+                    <g id="Needle" transform="translate(87.000000, 160.000000)">
+                        <g id="Group-7" transform="translate(0.000000, 23.000000)">
+                            <polyline id="Fill-60" fill="#C6382B" points="97 8 2.20285737 5.68893223 0 4.00195027 2.20285737 2.31106777 97 0 97 8"></polyline>
+                            <polyline id="Fill-61" fill="#000000" points="93 5 6.99995566 4.42214821 5 4.00083264 6.99995566 3.57785179 93 3 93 5"></polyline>
+                        </g>
+                        <g id="Group" transform="translate(71.000000, 0.000000)">
+                            <path d="M55,27.4990178 C55,42.6874174 42.6869776,55 27.5,55 C12.3130224,55 0,42.6874174 0,27.4990178 C0,12.3125826 12.3130224,0 27.5,0 C42.6869776,0 55,12.3125826 55,27.4990178" id="Fill-109" fill="#0A0B09"></path>
+                            <path d="M55,27.4990178 C55,42.6874174 42.6869776,55 27.5,55 C12.3130224,55 0,42.6874174 0,27.4990178 C0,12.3125826 12.3130224,0 27.5,0 C42.6869776,0 55,12.3125826 55,27.4990178 Z" id="Stroke-110" stroke="#FFFFFF" stroke-width="0.701"></path>
+                            <path d="M53,27 C53,40.2560226 42.2520352,51 29,51 C15.7459711,51 5,40.2560226 5,27 C5,13.7459711 15.7459711,3 29,3 C42.2520352,3 53,13.7459711 53,27" id="Fill-111" fill="#000000"></path>
+                            <path d="M53,27 C53,40.2560226 42.2520352,51 29,51 C15.7459711,51 5,40.2560226 5,27 C5,13.7459711 15.7459711,3 29,3 C42.2520352,3 53,13.7459711 53,27 Z" id="Stroke-112" stroke="#0A0B09" stroke-width="0.603"></path>
+                            <path d="M46,27 C46,36.9420195 37.9381107,45 28,45 C18.0579805,45 10,36.9420195 10,27 C10,17.0579805 18.0579805,9 28,9 C37.9381107,9 46,17.0579805 46,27" id="Fill-113" fill="#000000"></path>
+                            <path d="M46,27 C46,36.9420195 37.9381107,45 28,45 C18.0579805,45 10,36.9420195 10,27 C10,17.0579805 18.0579805,9 28,9 C37.9381107,9 46,17.0579805 46,27 Z" id="Stroke-114" stroke="#FFFFFF" stroke-width="1.61"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

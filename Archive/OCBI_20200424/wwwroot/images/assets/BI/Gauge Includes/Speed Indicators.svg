@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="166px" height="130px" viewBox="0 0 166 130" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Speed Indicators</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard-Light---New-Message" transform="translate(-1032.000000, -275.000000)">
+            <g id="Group-3" transform="translate(330.000000, 120.000000)">
+                <g id="Large-Gauge" transform="translate(599.000000, 51.000000)">
+                    <g id="Speed-Indicators" transform="translate(103.000000, 104.000000)">
+                        <polyline id="Fill-29" fill="#000000" points="25.5201669 119 27 121.149619 14.4837274 129 13 126.850381 25.5201669 119"></polyline>
+                        <polyline id="Fill-30" fill="#000000" points="21.2337 110 22 111.798517 15.7663 115 15 113.199423 21.2337 110"></polyline>
+                        <polyline id="Fill-31" fill="#000000" points="17.227501 101 18 103.617854 3.77249903 108 3 105.380175 17.227501 101"></polyline>
+                        <polyline id="Fill-32" fill="#000000" points="15.7342713 92 16 93.9156627 9.26387045 95 9 93.0863454 15.7342713 92"></polyline>
+                        <polyline id="Fill-33" fill="#000000" points="14.9844237 82 15 84.9178947 0.015576324 85 0 82.0778947 14.9844237 82"></polyline>
+                        <polyline id="Fill-34" fill="#000000" points="16 72.0329897 15.754386 74 9 72.9690722 9.24561404 71 16 72.0329897"></polyline>
+                        <polyline id="Fill-35" fill="#000000" points="18 62.3117257 17.2554012 65 3 60.6862576 3.74266975 58 18 62.3117257"></polyline>
+                        <polyline id="Fill-36" fill="#000000" points="21 54.1654827 20.2522088 56 14 52.8345173 14.745917 51 21 54.1654827"></polyline>
+                        <polyline id="Fill-37" fill="#000000" points="27 44.8088622 25.5486505 47 13 39.1930154 14.4532872 37 27 44.8088622"></polyline>
+                        <polyline id="Fill-38" fill="#000000" points="32 36.6054987 30.6984407 38 25 33.3964194 26.2974404 32 32 36.6054987"></polyline>
+                        <polyline id="Fill-39" fill="#000000" points="40 30.2433477 37.9293344 32 28 20.7547198 30.0686935 19 40 30.2433477"></polyline>
+                        <polyline id="Fill-40" fill="#000000" points="48 23.9905713 46.5473458 25 43 19.0113699 44.456241 18 48 23.9905713"></polyline>
+                        <polyline id="Fill-41" fill="#000000" points="57 19.8662446 54.4430437 21 48 7.13375544 50.5589824 6 57 19.8662446"></polyline>
+                        <polyline id="Fill-42" fill="#000000" points="66 16.5047518 64.0957283 17 62 10.4934002 63.9104478 10 66 16.5047518"></polyline>
+                        <polyline id="Fill-43" fill="#000000" points="76 14.6371432 73.1623296 15 71 0.362856777 73.8376704 0 76 14.6371432"></polyline>
+                        <polyline id="Fill-44" fill="#000000" points="84.94 14 83.014 13.9904606 83.056 7 84.986 7.00953938 84.94 14"></polyline>
+                        <polyline id="Fill-45" fill="#000000" points="94.7267303 15 92 14.6046571 94.2732697 0 97 0.395342886 94.7267303 15"></polyline>
+                        <polyline id="Fill-46" fill="#000000" points="103.861686 17 102 16.4842884 104.138314 10 106 10.5157116 103.861686 17"></polyline>
+                        <polyline id="Fill-47" fill="#090909" points="113.503759 21 111 19.8327157 117.500221 6 120 7.16728428 113.503759 21"></polyline>
+                        <polyline id="Fill-48" fill="#000000" points="121.425532 26 120 24.964624 123.572695 19 125 20.0334262 121.425532 26"></polyline>
+                        <polyline id="Fill-49" fill="#000000" points="130.024402 32 128 30.2079712 137.973646 19 140 20.7920288 130.024402 32"></polyline>
+                        <polyline id="Fill-50" fill="#000000" points="136.274401 40 135 38.5744681 140.725599 34 142 35.4255319 136.274401 40"></polyline>
+                        <polyline id="Fill-51" fill="#000000" points="142.415622 48 141 45.7612793 153.584378 38 155 40.2406244 142.415622 48"></polyline>
+                        <polyline id="Fill-52" fill="#000000" points="146.727297 57 146 55.1268562 152.274573 52 153 53.8710225 146.727297 57"></polyline>
+                        <polyline id="Fill-53" fill="#000000" points="149.7108 66 149 63.2330871 163.2892 59 164 61.7648449 149.7108 66"></polyline>
+                        <polyline id="Fill-54" fill="#000000" points="151.320907 76 151 73.6214347 165.673328 72 166 74.3820225 151.320907 76"></polyline>
+                        <polyline id="Fill-55" fill="#000000" points="152 84.941 152.011444 83.015 159 83.057 158.990463 84.985 152 84.941"></polyline>
+                        <polygon id="Fill-56" fill="#000000" points="151.431696 92 166 94.389313 165.566385 97 151 94.6125954"></polygon>
+                        <polyline id="Fill-57" fill="#000000" points="148 104.51634 148.820645 102 163 106.479847 162.179355 109 148 104.51634"></polyline>
+                        <polyline id="Fill-58" fill="#000000" points="145 112.746064 145.798923 111 152 114.251918 151.201077 116 145 112.746064"></polyline>
+                        <polyline id="Fill-59" fill="#000000" points="139 121.29743 140.532446 119 153 127.704574 151.467554 130 139 121.29743"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
